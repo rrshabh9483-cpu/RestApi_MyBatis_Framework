@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lcwr.mybatis_product_api.dao.ProductMapper">
+
+    <resultMap id="productResultMap" type="com.lcwr.mybatis_product_api.model.Product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <select id="getProductByIdFromSP" parameterType="java.lang.Long" resultMap="productResultMap" statementType="CALLABLE">
+        {
+        CALL GetProductById(#{productId, mode=IN, jdbcType=INTEGER})
+        }
+    </select>
+</mapper>
