@@ -15,4 +15,11 @@
         CALL GetProductById(#{productId, mode=IN, jdbcType=INTEGER})
         }
     </select>
+
+    <select id="getAllProducts" parameterType="java.lang.Long" resultMap="productResultMap"
+            statementType="CALLABLE">
+        {
+        CALL GetAllProducts()
+        }
+    </select>
 </mapper>

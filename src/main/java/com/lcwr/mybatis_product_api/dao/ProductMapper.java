@@ -4,8 +4,12 @@ import com.lcwr.mybatis_product_api.model.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface ProductMapper {
     // Method signature to call the stored procedure
     Product getProductByIdFromSP(@Param("productId") Long id);
+    // Method signature to call the stored procedure
+    List<Product> getAllProducts();
 }

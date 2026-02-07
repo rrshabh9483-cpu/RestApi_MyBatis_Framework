@@ -4,6 +4,8 @@ import com.lcwr.mybatis_product_api.dao.ProductMapper;
 import com.lcwr.mybatis_product_api.model.Product;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -23,4 +25,8 @@ public class ProductService {
         return productMapper.getProductByIdFromSP(id);
     }
 
+    public List<Product> getAllProducts() {
+        // Calls the method defined in the DAO interface, which MyBatis maps to the stored procedure in the XML.
+        return productMapper.getAllProducts();
+    }
 }
